@@ -1,0 +1,225 @@
+
+/* GENERAL SETTINGS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #080d18;
+    color: #ffffff;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #050914, #102b50);
+    color: #d4af37;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 3px solid #d4af37;
+}
+
+header h1 {
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #60a5fa;
+    margin-top: 8px;
+}
+
+/* MAIN CONTENT */
+main {
+    padding: 30px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+h2 {
+    color: #d4af37;
+    margin: 30px 0 18px;
+    border-left: 4px solid #16a34a;
+    padding-left: 12px;
+}
+
+/* DASHBOARD CARDS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #111c30, #172b45);
+    padding: 28px 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #23446b;
+    border-bottom: 4px solid #d4af37;
+    box-shadow: 0 5px 18px #00000050;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.card h3 {
+    color: #93c5fd;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 36px;
+    font-weight: bold;
+    color: #22c55e;
+}
+
+/* INPUT AND BUTTONS */
+select {
+    background: #111c30;
+    color: white;
+    padding: 13px;
+    border: 1px solid #2563eb;
+    border-radius: 6px;
+    margin: 5px;
+    min-width: 200px;
+}
+
+button {
+    background: linear-gradient(135deg, #166534, #16a34a);
+    color: white;
+    padding: 12px 18px;
+    margin: 5px;
+    border: 1px solid #22c55e;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #15803d;
+    transform: translateY(-2px);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: #111c30;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #00000050;
+}
+
+th {
+    background: linear-gradient(135deg, #102b50, #1d4ed8);
+    color: #d4af37;
+    padding: 16px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #26364d;
+    color: #e2e8f0;
+}
+
+tr:hover {
+    background: #1b2c43;
+}
+
+/* STATUS LABELS */
+.status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.waiting {
+    background: #172b50;
+    color: #60a5fa;
+    border: 1px solid #2563eb;
+}
+
+.status.serving {
+    background: #14532d;
+    color: #86efac;
+    border: 1px solid #22c55e;
+}
+
+.status.completed {
+    background: #3d3210;
+    color: #facc15;
+    border: 1px solid #d4af37;
+}
+
+.status.cancelled {
+    background: #451a1a;
+    color: #fca5a5;
+    border: 1px solid #ef4444;
+}
+
+/* ACTION BUTTONS */
+td button {
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+td button:last-child {
+    background: #1d4ed8;
+    border-color: #60a5fa;
+}
+
+td button:last-child:hover {
+    background: #1e40af;
+}
+
+/* MESSAGE */
+#message {
+    margin: 15px 5px;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 10px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    main {
+        padding: 12px;
+    }
+}

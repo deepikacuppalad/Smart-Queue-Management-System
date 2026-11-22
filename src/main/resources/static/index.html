@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Queue Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Queue Management System</h1>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('register')">Register</a>
+        <a href="#" onclick="showPage('token')">Take Token</a>
+        <a href="#" onclick="showPage('status')">Queue Status</a>
+        <a href="#" onclick="showPage('track')">Track Your Token</a>
+        <a href="#" onclick="showPage('admin')">Admin Dashboard</a>
+        <a href="#" onclick="showPage('display')">Live Display</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HOME -->
+    <section id="home" class="page">
+        <h2>Welcome to Smart Queue</h2>
+        <p>Manage customer queues easily and efficiently.</p>
+
+        <button onclick="showPage('register')">Register Customer</button>
+        <button onclick="showPage('token')">Take Token</button>
+        <button onclick="showPage('track')">Track Your Token</button>
+    </section>
+
+    <!-- CUSTOMER REGISTRATION -->
+    <section id="register" class="page" style="display:none;">
+        <h2>Customer Registration</h2>
+
+        <form id="customerForm">
+            <input type="text" id="name"
+                   placeholder="Enter Customer Name" required>
+
+            <input type="tel" id="phone"
+                   placeholder="Enter Phone Number" required>
+
+            <input type="email" id="email"
+                   placeholder="Enter Email">
+
+            <button type="submit">Register Customer</button>
+        </form>
+
+        <p id="registerMessage"></p>
+    </section>
+
+    <!-- TAKE TOKEN -->
+    <section id="token" class="page" style="display:none;">
+        <h2>Generate Queue Token</h2>
+
+        <label>Select Customer</label>
+        <input type="number" id="customerId"
+               placeholder="Enter Customer ID" required>
+
+        <label>Select Department</label>
+        <select id="department">
+            <option value="">Select Department</option>
+        </select>
+
+        <button onclick="generateToken()">Generate Token</button>
+
+        <div id="tokenResult"></div>
+
+        <div class="qr-section">
+            <h3>Your Token QR Code</h3>
+            <div id="qrcode"></div>
+            <p>Scan this QR code to view your token details.</p>
+        </div>
+    </section>
+
+    <!-- QUEUE STATUS -->
+    <section id="status" class="page" style="display:none;">
+        <h2>Queue Status</h2>
+        <div id="queueList"></div>
+    </section>
+
+    <!-- TRACK YOUR TOKEN -->
+    <section id="track" class="page" style="display:none;">
+        <h2>Track Your Token</h2>
+
+        <p>Enter your token number to check your queue status.</p>
+
+        <input
+            type="text"
+            id="trackTokenNumber"
+            placeholder="Enter Token Number (Example: D1)"
+        >
+
+        <button onclick="trackToken()">Track Token</button>
+
+        <div id="trackResult"></div>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="admin" class="page" style="display:none;">
+        <h2>Admin Dashboard</h2>
+
+        <div class="dashboard-stats">
+
+            <div class="stat-card">
+                <h3>Total Customers</h3>
+                <p id="totalCustomers">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Tokens</h3>
+                <p id="totalTokens">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Waiting</h3>
+                <p id="waitingTokens">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Serving</h3>
+                <p id="servingTokens">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <p id="completedTokens">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Cancelled</h3>
+                <p id="cancelledTokens">0</p>
+            </div>
+
+        </div>
+
+        <h3>Call Next Customer</h3>
+
+        <select id="departmentSelect">
+            <option value="">Select Department</option>
+        </select>
+
+        <button onclick="callNextCustomer()">
+            Call Next Customer
+        </button>
+
+        <p id="message"></p>
+
+        <h3>All Queue Tokens</h3>
+
+        <div class="table-container">
+            <table id="queueTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Token</th>
+                        <th>Customer</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- LIVE DISPLAY -->
+    <section id="display" class="page" style="display:none;">
+        <h2>Live Customer Display</h2>
+
+        <div id="servingDisplay">
+            <h3>NOW SERVING</h3>
+            <h1>Please Wait...</h1>
+        </div>
+
+        <h3>Other Serving Customers</h3>
+        <div id="servingList"></div>
+
+        <p id="displayLastUpdated"></p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Smart Queue Management System</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>

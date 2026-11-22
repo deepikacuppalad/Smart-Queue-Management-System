@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Queue - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <header>
+        <h1>Smart Queue Admin</h1>
+        <p>Queue Management Dashboard</p>
+    </header>
+
+    <main>
+        <h2>Dashboard Overview</h2>
+
+        <div class="stats">
+            <div class="card">
+                <h3>Total Customers</h3>
+                <p id="totalCustomers">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Tokens</h3>
+                <p id="totalTokens">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Waiting</h3>
+                <p id="waitingTokens">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Serving</h3>
+                <p id="servingTokens">0</p>
+            </div>
+        </div>
+
+        <h2>Department Management</h2>
+
+        <select id="departmentSelect">
+            <option value="">Select Department</option>
+        </select>
+
+        <button onclick="callNextCustomer()">Call Next Customer</button>
+
+        <p id="message"></p>
+
+        <h2>Queue Details</h2>
+
+        <button onclick="loadDashboard()">Refresh Dashboard</button>
+
+        <table>
+            
+                <thead>
+    <tr>
+        <th>Token</th>
+        <th>Customer</th>
+        <th>Department</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+            
+            <tbody id="queueTable"></tbody>
+        </table>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

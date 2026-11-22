@@ -1,0 +1,592 @@
+
+/* ==========================================
+   SMART QUEUE MANAGEMENT SYSTEM
+   COMPLETE PREMIUM FRONTEND DESIGN
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #070b14;
+    --surface: #101827;
+    --surface-light: #172235;
+    --gold: #d6b66a;
+    --green: #19a76b;
+    --blue: #2563eb;
+    --white: #ffffff;
+    --text: #dce3ed;
+    --muted: #94a3b8;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #14233b, transparent 40%),
+        radial-gradient(circle at bottom right, #102b25, transparent 35%),
+        var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+    background: rgba(10, 16, 29, 0.97);
+    padding: 25px 5%;
+    border-bottom: 1px solid rgba(214, 182, 106, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+header h1 {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ==========================================
+   NAVIGATION - SIX SEPARATE BOXES
+========================================== */
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+
+nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 10px;
+
+    background: linear-gradient(145deg, #172235, #101827);
+    color: var(--white);
+
+    border: 1px solid rgba(214, 182, 106, 0.45);
+    border-radius: 10px;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, #19a76b, #08784b);
+    border-color: var(--green);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(25, 167, 107, 0.2);
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto;
+}
+
+/* ==========================================
+   PAGE SECTIONS
+========================================== */
+
+.page {
+    background: rgba(16, 24, 39, 0.96);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 16px;
+    padding: 35px;
+    margin-bottom: 30px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   HOME PAGE
+========================================== */
+
+#home {
+    text-align: center;
+    padding: 65px 35px;
+
+    background: linear-gradient(
+        135deg,
+        #101827,
+        #142b2a
+    );
+
+    border: 1px solid rgba(214, 182, 106, 0.3);
+}
+
+#home h2 {
+    font-size: 38px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+h2 {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: var(--white);
+    margin: 18px 0 12px;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+    background: linear-gradient(
+        135deg,
+        var(--green),
+        #08784b
+    );
+
+    color: white;
+    border: none;
+
+    padding: 13px 24px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+
+    margin: 10px 5px 10px 0;
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(25, 167, 107, 0.25);
+}
+
+/* ==========================================
+   FORMS
+========================================== */
+
+form {
+    max-width: 550px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 500px;
+
+    display: block;
+
+    background: #0b1220;
+    color: white;
+
+    border: 1px solid #334155;
+    border-radius: 8px;
+
+    padding: 14px;
+    margin: 12px 0 20px;
+
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--gold);
+
+    box-shadow: 0 0 0 3px
+        rgba(214, 182, 106, 0.12);
+}
+
+label {
+    display: block;
+    color: var(--gold);
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   REGISTRATION MESSAGE
+========================================== */
+
+#registerMessage {
+    margin-top: 20px;
+    color: var(--green);
+}
+
+/* ==========================================
+   TOKEN RESULT
+========================================== */
+
+#tokenResult {
+    margin-top: 25px;
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #102b25,
+        #101827
+    );
+
+    border: 1px solid rgba(25, 167, 107, 0.4);
+    border-radius: 12px;
+}
+
+#tokenResult h1 {
+    font-size: 55px;
+    color: var(--gold);
+    margin: 15px 0;
+}
+
+/* ==========================================
+   QR CODE
+========================================== */
+
+.qr-section {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: var(--surface-light);
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 15px;
+
+    background: white;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   QUEUE CARDS
+========================================== */
+
+.queue-card,
+.serving-card {
+    background: var(--surface-light);
+
+    border: 1px solid #26364d;
+    padding: 22px;
+
+    border-radius: 12px;
+    margin: 15px 0;
+
+    transition: 0.3s ease;
+}
+
+.queue-card:hover,
+.serving-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.queue-card h3,
+.serving-card h2 {
+    color: var(--gold);
+}
+
+/* ==========================================
+   LIVE CUSTOMER DISPLAY
+========================================== */
+
+#servingDisplay {
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #102b25,
+        #101827
+    );
+
+    border: 1px solid var(--green);
+    border-radius: 16px;
+
+    padding: 40px 20px;
+    margin: 25px 0;
+}
+
+#servingDisplay h1 {
+    font-size: 75px;
+    color: var(--gold);
+    margin: 20px 0;
+}
+
+#servingDisplay h2 {
+    color: var(--green);
+}
+
+/* ==========================================
+   ADMIN DASHBOARD SUPPORT
+========================================== */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, #172235, #101827);
+    border: 1px solid rgba(214, 182, 106, 0.4);
+    border-radius: 14px;
+    padding: 25px;
+    min-height: 130px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: var(--gold);
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.stat-card p {
+    color: var(--green);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+#queueTable {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    background: var(--surface);
+}
+
+#queueTable th {
+    background: var(--surface-light);
+    color: var(--gold);
+    padding: 15px;
+}
+
+#queueTable td {
+    color: var(--text);
+    padding: 13px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    text-align: center;
+    padding: 25px;
+
+    border-top: 1px solid #26364d;
+    background: #080d17;
+
+    margin-top: 50px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1000px) {
+
+    nav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+
+    main {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .page {
+        padding: 20px;
+    }
+
+    #home h2 {
+        font-size: 28px;
+    }
+
+    #servingDisplay h1 {
+        font-size: 48px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav a {
+        text-align: center;
+        font-size: 13px;
+        padding: 12px 6px;
+    }
+
+    .container,
+    .page {
+        width: 95%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    input,
+    select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    header h1 {
+        font-size: 19px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .stat-card {
+        min-height: 110px;
+    }
+}
+
+}
